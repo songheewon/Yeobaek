@@ -1,0 +1,204 @@
+/*------------------------------------*\
+  Components > Post
+\*------------------------------------*/
+
+.c-post {
+  margin: auto;
+  max-width: 730px;
+
+  > * + * {
+    margin-top: $space-32;
+  }
+
+  &__line {
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 0.5px;
+    padding: 0;
+    margin-bottom: 50px;
+  }
+}
+
+.c-post-grid {
+  .js-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 46px 20px;
+
+    @include mq($from: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mq($from: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.s-post-related {
+  @include mq($until: desktop) {
+    display: none;
+  }
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 100px;
+  font-family: 'noto sans cjk kr', sans-serif;
+  &__name {
+    font-family: 'noto sans cjk kr', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0em;
+  }
+  &__image-container {
+    width: 100%;
+  }
+  &__image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  &__title {
+    margin-top: 15px;
+    @include ellipsis(2);
+    font-family: 'noto sans cjk kr', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+  }
+  &__info {
+    display: flex;
+    margin-top: 8px;
+  }
+  &__author {
+    display: flex;
+    &--by {
+      font-family: Noto Serif Georgian;
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0em;
+      color: rgba(185, 185, 185, 1);
+    }
+    &--name {
+      font-family: 'noto sans cjk kr', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0em;
+    }
+  }
+
+  &__date {
+    font-family: 'noto sans cjk kr', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    color: rgba(185, 185, 185, 1);
+    margin-left: 20px;
+  }
+
+  &__list {
+    margin-top: 20px;
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.s-post-related-media {
+  @include mq($from: desktop) {
+    display: none;
+  }
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
+  font-family: 'noto sans cjk kr', sans-serif;
+  &__name {
+    font-family: 'noto sans cjk kr', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 35px;
+  }
+  &__image-container {
+    width: 40%;
+  }
+  &__image {
+    width: 100%;
+    height: 85px;
+    @include mq($from: landscape) {
+      height: 150px;
+    }
+    object-fit: cover;
+  }
+  &__not-image {
+    width: 50%;
+    margin: auto 0;
+  }
+  &__title {
+    @include ellipsis(2);
+    font-family: 'noto sans cjk kr', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+  }
+  &__info {
+    display: flex;
+    margin-top: 8px;
+  }
+  &__author {
+    display: flex;
+    &--by {
+      font-family: Noto Serif Georgian;
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0em;
+      color: rgba(185, 185, 185, 1);
+    }
+    &--name {
+      font-family: 'noto sans cjk kr', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0em;
+    }
+  }
+
+  &__date {
+    font-family: 'noto sans cjk kr', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    color: rgba(185, 185, 185, 1);
+    margin-left: 10px;
+  }
+
+  &__list {
+    margin-top: 20px;
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__component {
+    border-top: 0.5px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &--last {
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);;
+    }
+  }
+}

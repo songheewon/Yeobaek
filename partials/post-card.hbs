@@ -1,0 +1,40 @@
+<div class="c-post-card__wrap{{#unless no-js}} js-post-card__wrap{{/unless}}">
+  {{#match type "=" "text"}}
+  <div class="c-post-card__media">
+    <a href="{{ url }}" class="c-post-card__url--cover"></a>
+    <div class="c-post-card__title">{{title}}</div>
+    <div class="c-post-card__content">{{excerpt}}</div>
+    <div class="c-post-card__date-and-tags">
+      <time class="c-post-card__date-and-tags--date" datetime="{{ date format=" YYYY-MM-DD" }}" title="{{ date format="
+        YYYY.MM.DD" }}">{{ date format="YYYY.MM.DD" }}</time>
+        {{#foreach tags limit=3}}
+          <a href="{{url}}" class="c-post-card__date-and-tags--tags">#{{name}}</a>
+        {{/foreach}}
+    </div>
+  </div>
+  {{/match}}
+  {{#match type "=" "thumbnail"}}
+  <div class="c-post-card__media-thumbnail">
+    <a href="{{ url }}" class="c-post-card__url--cover"></a>
+    {{#if feature_image}}
+    <div class="c-post-card__image--wrap">
+      <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+        class="c-post-card__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+    </div>
+    {{else}}
+    <div class="c-post-card__image--wrap">
+      <img alt="{{title}}" class="c-post-card__image lazyload" src="{{@custom.default_image}}">
+    </div>
+    {{/if}}
+    <div class="c-post-card__title-thumbnail">{{title}}</div>
+    <div class="c-post-card__content-thumbnail">{{excerpt}}</div>
+    <div class="c-post-card__date-and-tags-thumbnail">
+      <time class="c-post-card__date-and-tags-thumbnail--date" datetime="{{ date format=" YYYY-MM-DD" }}" title="{{ date format="
+        YYYY.M.D" }}">{{ date format="YYYY.M.D" }}</time>
+      {{#foreach tags limit=3}}
+          <a href="{{url}}" class="c-post-card__date-and-tags--tags">#{{name}}</a>
+        {{/foreach}}
+    </div>
+  </div>
+  {{/match}}
+</div>

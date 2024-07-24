@@ -1,0 +1,12 @@
+{{!< default}} {{#contentFor 'title' }}{{ meta_title }}{{/contentFor}} <div class="c-feature-box-tag">
+  <div class="c-feature-box-tag__info">
+    {{#foreach @site.navigation as |n|}}
+    <a href="{{n.url}}" class="c-feature-box-tag__info--tag_name {{link_class for=n.url activeClass="c-feature-box-tag__info--tag_name--current"}}"
+    style="{{#match n.label "About"}}display: none;{{/match}}">{{n.label}}</a>
+    {{/foreach}}
+  </div>
+  <div class="c-feature-box-tag__posts">
+    {{> home/recent-posts}}
+    {{pagination}}
+  </div>
+  </div>

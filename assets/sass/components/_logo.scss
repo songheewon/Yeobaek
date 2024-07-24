@@ -1,0 +1,34 @@
+/*------------------------------------*\
+  Components > Logo
+\*------------------------------------*/
+
+.c-logo {
+  margin-right: $space-32;
+  font-family: Noto Serif;
+font-size: 28px;
+font-weight: 700;
+line-height: 24px;
+letter-spacing: -2px;
+text-align: left;
+
+
+  @include mq($until: desktop) {
+    z-index: 100;
+  }
+
+  &__link {
+    display: block;
+    line-height: 24px;
+    letter-spacing: -2;
+    font-weight: 700;
+    font-size: 28px;
+
+    @include attention() {
+      color: var(--color-brand);
+    }
+  }
+
+  &__img {
+    max-height: $space-40;
+  }
+}

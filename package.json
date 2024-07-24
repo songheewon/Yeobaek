@@ -1,0 +1,115 @@
+{
+  "name": "yeobaek",
+  "description": "블루닷 여백(yeobaek) 테마",
+  "version": "0.0.1",
+  "engines": {
+    "ghost": ">=4.0.0"
+  },
+  "keywords": [
+    "ghost-theme"
+  ],
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "@primer/css": "^15.2.0",
+    "clipboard": "^2.0.8",
+    "concat": "^3.0.0",
+    "evil-icons": "^1.10.1",
+    "fs": "0.0.2",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^0.6.1",
+    "gulp-size": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.12.0",
+    "jshint-stylish": "^2.2.0",
+    "lazysizes": "^5.3.2",
+    "normalize.css": "^8.0.1",
+    "prismjs": "^1.23.0",
+    "run-sequence": "^2.2.1",
+    "sass-mq": "^5.0.1"
+  },
+  "devDependencies": {
+    "dart-sass": "^1.25.0",
+    "gulp": "^4.0.2",
+    "gulp-rtlcss": "^1.4.2",
+    "gulp-sass": "^5.0.0",
+    "gulp-zip": "^4.2.0",
+    "node-sass": "^6.0.1",
+    "sass": "^1.35.1"
+  },
+  "author": {
+    "name": "Mediasphere",
+    "email": "admin@mediasphere.kr",
+    "url": "https://mediasphere.kr/"
+  },
+  "config": {
+    "custom": {
+      "post_type": {
+        "group": "post",
+        "type": "select",
+        "options": [
+          "텍스트",
+          "썸네일"
+        ],
+        "default": "텍스트",
+        "title": "게시물 노출 방식",
+        "description": "텍스트 또는 썸네일 형식의 게시물 노출 방식을 선택할 수 있습니다."
+      },
+      "default_image": {
+        "group": "post",
+        "type": "image",
+        "title": "디폴트 이미지",
+        "description": "썸네일 형식의 게시물 노출 방식 시 디폴트 이미지를 선택할 수 있습니다."
+      }
+    },
+    "posts_per_page": 12,
+    "image_sizes": {
+      "profile-image": {
+        "width": 160
+      },
+      "profile-image-small": {
+        "width": 64
+      },
+      "home-image-default": {
+        "width": 1080
+      },
+      "home-image-ricle": {
+        "width": 192
+      },
+      "home-image-ricle--medium": {
+        "width": 256
+      },
+      "home-image-ricle--large": {
+        "width": 384
+      },
+      "home-image-ricle--xlarge": {
+        "width": 512
+      },
+      "home-image-center": {
+        "width": 1462
+      },
+      "home-image-wide-small": {
+        "width": 536
+      },
+      "home-image-wide-medium": {
+        "width": 1120
+      },
+      "home-image-wide-large": {
+        "width": 2240
+      },
+      "post-image": {
+        "width": 730
+      },
+      "post-image-large": {
+        "width": 1460
+      }
+    }
+  }
+}

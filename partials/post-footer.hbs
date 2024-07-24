@@ -1,0 +1,19 @@
+{{#get "posts" filter=(concat "primary_tag:" primary_tag.slug) include="tags" limit="4" order="published_at desc"}}
+{{#if posts}}
+<section class="s-product-related">
+    <div class="o-grid">
+        <div class="o-grid__col o-grid__col--full">
+            <h1 class="s-product-related__title">당신이 놓친 글</h1>
+            <div class="s-product-related__list">
+                {{#foreach posts}}
+                {{> common/post/card }}
+                {{#primary_author}}
+                <div>{{name}}</div>
+                {{/primary_author}}
+                {{/foreach}}
+            </div>
+        </div>
+    </div>
+</section>
+{{/if}}
+{{/get}}

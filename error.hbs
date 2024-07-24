@@ -1,0 +1,139 @@
+{{!< default}} {{#contentFor 'title' }}{{t 'Page Not Found' }}{{/contentFor}} <div id="error-icon">
+  <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_312_148)">
+      <path
+        d="M22.4995 35.0577C23.6553 35.0577 24.5922 34.1207 24.5922 32.965C24.5922 31.8092 23.6553 30.8723 22.4995 30.8723C21.3438 30.8723 20.4069 31.8092 20.4069 32.965C20.4069 34.1207 21.3438 35.0577 22.4995 35.0577Z"
+        fill="black" />
+      <path
+        d="M20.9298 26.6859C20.9298 27.5531 21.6322 28.2556 22.4995 28.2556C23.3668 28.2556 24.0693 27.5531 24.0693 26.6859H20.9298ZM24.0693 12.0351C24.0693 11.1678 23.3668 10.4654 22.4995 10.4654C21.6322 10.4654 20.9298 11.1678 20.9298 12.0351H24.0693ZM41.8595 22.5005C41.8595 33.1925 33.1915 41.8605 22.4995 41.8605V45C34.9261 45 44.999 34.9261 44.999 22.5005H41.8595ZM22.4995 41.8605C11.8075 41.8605 3.13951 33.1925 3.13951 22.5005H0C0 34.9271 10.0739 45 22.4995 45V41.8605ZM3.13951 22.4995C3.13951 11.8075 11.8075 3.13951 22.4995 3.13951V0C10.0739 0 0 10.0739 0 22.4995H3.13951ZM22.4995 3.13951C33.1915 3.13951 41.8595 11.8075 41.8595 22.4995H44.999C45 10.0739 34.9261 0 22.4995 0V3.13951ZM24.0693 26.6859V12.0351H20.9298V26.6859H24.0693Z"
+        fill="black" />
+    </g>
+    <defs>
+      <clipPath id="clip0_312_148">
+        <rect width="45" height="45" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+  </div>
+  <div id="error-msg">404</div>
+  <button class="c-btn c-btn--outline c-btn--rounded" id="home-button"
+    onclick="location.href='{{@site.url}}'">홈으로</button>
+  {{#get 'posts' include='authors' limit='4' as |posts|}}
+  {{#if posts}}
+  <div class="s-post-related" id="other-post">
+    <div class="s-post-related__name">당신이 놓친 글</div>
+    <div class="s-product-related__list s-post-related__list">
+      {{#foreach posts}}
+      <a href="{{ url }}" class="">
+        <article>
+          <div class="s-post-related__image-container">
+            {{#if feature_image}}
+            <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+              class="s-post-related__image" src="{{img_url feature_image}}">
+            {{else}}
+            <img alt="{{title}}" class="s-post-related__image" src="{{@custom.default_image}}">
+            {{/if}}
+
+          </div>
+          <div class="content grow flex flex-col">
+            <div class="s-post-related__title">{{title}}</div>
+            <div class="s-post-related__info">
+              {{#primary_author}}
+              <div class="s-post-related__author">
+                <div class="s-post-related__author--by">by&nbsp;</div>
+                <div class="s-post-related__author--name">{{name}}</div>
+              </div>
+              {{/primary_author}}
+              <div class="s-post-related__date">{{date published_at format="YYYY.M.D"}}</div>
+            </div>
+          </div>
+        </article>
+      </a>
+      {{/foreach}}
+    </div>
+  </div>
+  <div class="s-post-related-media">
+    <div class="s-post-related-media__name">당신이 놓친 글</div>
+    <div class="s-post-related-media__list">
+      {{#foreach posts}}
+        <article class="s-post-related-media__component {{#if @last}}s-post-related-media__component--last{{/if}}">
+          <div class="s-post-related-media__not-image">
+      <a href="{{ url }}" class="">
+            <div class="s-post-related-media__title">{{title}}</div>
+      </a>
+            <div class="s-post-related-media__info">
+              {{#primary_author}}
+              <div class="s-post-related-media__author">
+                <div class="s-post-related-media__author--by">by&nbsp;</div>
+                <div class="s-post-related-media__author--name">{{name}}</div>
+              </div>
+              {{/primary_author}}
+              <div class="s-post-related-media__date">{{date published_at format="YYYY.M.D"}}</div>
+            </div>
+          </div>
+          <div class="s-post-related-media__image-container">
+            <a href="{{ url }}" class="">
+              {{#if feature_image}}
+              <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+                class="s-post-related-media__image" src="{{img_url feature_image}}">
+              {{else}}
+              <img alt="{{title}}" class="s-post-related-media__image" src="{{@custom.default_image}}">
+              {{/if}}
+            </a>
+          </div>
+        </article>
+      {{/foreach}}
+    </div>
+  </div>
+  {{/if}}
+  {{/get}}
+
+  {{#contentFor "scripts"}}
+  <script>
+    var currentUrl = window.location.href;
+    if (currentUrl.includes("tag")) {
+      var errorIcon = document.getElementById("error-icon");
+      errorIcon.style.width = "100%";
+      errorIcon.style.marginTop = "10%";
+      errorIcon.style.textAlign = "center";
+      errorIcon.style.display = "block";
+      var errorMsg = document.getElementById("error-msg");
+      errorMsg.innerHTML = "해당 태그의 게시글이 없습니다";
+      errorMsg.style.width = "100%";
+      errorMsg.style.fontSize = "18px";
+      errorMsg.style.lineHeight = "28px";
+      errorMsg.style.letterSpacing = "-1%";
+      errorMsg.style.fontWeight = "500";
+      errorMsg.style.textAlign = "center";
+      errorMsg.style.marginTop = "10px";
+      var homeBtn = document.getElementById("home-button");
+      homeBtn.style.paddingLeft = "30px";
+      homeBtn.style.paddingRight = "30px";
+      homeBtn.style.display = "block";
+      homeBtn.style.margin = "50px auto";
+    }
+    else {
+      var errorIcon = document.getElementById("error-icon");
+      errorIcon.style.width = "100%";
+      errorIcon.style.marginTop = "10%";
+      errorIcon.style.textAlign = "center";
+      errorIcon.style.display = "none";
+      var errorMsg = document.getElementById("error-msg");
+      errorMsg.innerHTML = "404 페이지를 찾을 수 없습니다";
+      errorMsg.style.width = "100%";
+      errorMsg.style.fontSize = "18px";
+      errorMsg.style.lineHeight = "28px";
+      errorMsg.style.letterSpacing = "-1%";
+      errorMsg.style.fontWeight = "500";
+      errorMsg.style.textAlign = "center";
+      errorMsg.style.marginTop = "10px";
+      var otherPost = document.getElementById("other-post");
+      otherPost.style.display = "none";
+      var homeBtn = document.getElementById("home-button");
+      homeBtn.style.paddingLeft = "30px";
+      homeBtn.style.paddingRight = "30px";
+      homeBtn.style.display = "block";
+      homeBtn.style.margin = "0 auto";
+    }
+  </script>
+  {{/contentFor}}

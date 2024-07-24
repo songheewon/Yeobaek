@@ -1,0 +1,99 @@
+    <style>
+    /* For Bluedot */
+    :root {
+      /* --body-background: var(--background-primary); */
+      --body-background: {{ @custom.brand_background_color }};
+      --content-background: var(--background-primary);
+      --color-header-background: {{@site.header_background_color}};--paywall-background:rgba(0,0,0,0.8);
+      --text:var(--color-text);
+      --sub-text:var(--color-gray);
+      --accent-color: {{ @site.accent_color }};
+      --shop-accent-color: {{ @custom.shop_point_color }};
+      --shop-accent-background-color: {{ @custom.shop_point_background_color }};
+    }
+    .bluedot-signin h3.signin-subtitle {
+      color:var(--text);
+    }
+
+    .bluedot-footer { padding-top:20px; padding-bottom:30px; }
+    .bluedot-footer h2 { display:none; }
+
+    /* Style */
+body {
+  background-color: var(--body-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+.have-paywall-message .post-content:after {
+  background: linear-gradient( 0deg, var(--body-background) 14%, hsla(0, 0%, 100%, 0) );
+}
+
+     body,
+    .c-post-card__excerpt,
+    .c-content dl,
+    .c-content fieldset,
+    .c-content form,
+    .c-content ol,
+    .c-content p,
+    .c-content pre,
+    .c-content ul
+    {
+        font-family: 'Noto Serif Georgian';
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+
+
+    .c-post-card__excerpt {
+        font-size: 14px;
+		line-height: 24px;
+    }
+
+
+    .c-post-card:active .c-post-card__title-link, .c-post-card:focus .c-post-card__title-link, .c-post-card:hover .c-post-card__title-link {
+      border-color:#04a6d7;
+    }
+
+    {{#if @site.title_align}}
+.post-template .c-post-header__title {
+  {{#match @site.title_align '=' 'left'}}
+  text-align: left;
+  {{else match @site.title_align '=' 'right'}}
+  text-align: right;
+  {{else match @site.title_align '=' 'center'}}
+  text-align: center;
+  {{else match @site.title_align '=' 'side'}}
+  text-align: justify;
+  {{/match}}
+}
+{{/if}}
+{{#if @site.main_align}}
+.post-template .c-content {
+  {{#match @site.main_align '=' 'left'}}
+  text-align: left;
+  {{else match @site.main_align '=' 'right'}}
+  text-align: right;
+  {{else match @site.main_align '=' 'center'}}
+  text-align: center;
+  {{else match @site.main_align '=' 'side'}}
+  text-align: justify;
+  {{/match}}
+}
+{{/if}}
+.post-template .c-post-header__title {
+  font-family: noto-sans-cjk-kr, san-serif;
+}
+.post-template .c-content,
+.post-template .c-content *,
+.post-template .c-content > *,
+.post-template .c-content ul,
+.post-template .c-content li {
+  font-family: noto-sans-cjk-kr, san-serif;
+}
+</style>

@@ -1,0 +1,103 @@
+<div class="c-footer">
+    <div class="c-footer__container">
+        <div class="c-footer__info">
+            <div class='c-footer__logo c-logo'>
+                {{#if @site.logo}}
+                <a href='{{ @site.url }}'>
+                    <img class='c-logo__img' src='{{ @site.logo }}' alt='{{ @site.brand_site_title }}' width=''
+                        height=''>
+                </a>
+                {{else}}
+                <a class='c-logo__link' href='{{ @site.url }}'>{{ @site.brand_site_title }}</a>
+                {{/if}}
+            </div>
+            <ul class="s-common-default-footer__site-info">
+                {{#if @site.footer_company}}<li class="s-common-default-footer__site-info--item">
+                    {{@site.footer_company}}</li>{{/if}}
+                {{#if @site.footer_company_ceo}}<li class="s-common-default-footer__site-info--item">대표 :
+                    {{@site.footer_company_ceo}}</li>{{/if}}
+                {{#if @site.footer_company_number}}<li class="s-common-default-footer__site-info--item">사업자등록번호 :
+                    {{@site.footer_company_number}}</li>{{/if}}
+                {{#if @site.footer_company_address}}<li class="s-common-default-footer__site-info--item">
+                    {{@site.footer_company_address}}</li>{{/if}}
+                {{#if @site.footer_company_phone}}<li class="s-common-default-footer__site-info--item">대표전화 :
+                    {{@site.footer_company_phone}}</li>{{/if}}
+                {{#if @site.footer_company_privacy_officer}}<li class="s-common-default-footer__site-info--item">개인정보보호
+                    책임자 : {{@site.footer_company_privacy_officer}}</li>{{/if}}
+                {{#if @site.footer_text}}<li class="s-common-default-footer__site-info--item">{{@site.footer_text}}</li>
+                {{/if}}
+            </ul>
+            <div class="c-footer__info--contacts">
+                <div class="c-footer__info--icon">
+                    <a href="{{ instagram_url }}" aria-label="Instagram" target="_blank" rel="noopener">
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15 0H5C2.25 0 0 2.13323 0 4.74256V14.2277C0 16.8361 2.25 18.9702 5 18.9702H15C17.75 18.9702 20 16.8361 20 14.2277V4.74256C20 2.13323 17.75 0 15 0ZM10 13.4371C7.69873 13.4371 5.8335 11.667 5.8335 9.48512C5.8335 7.30326 7.69873 5.53314 10 5.53314C12.3013 5.53314 14.167 7.30234 14.167 9.48512C14.167 11.6679 12.3008 13.4371 10 13.4371ZM15.4165 5.53268C14.7256 5.53268 14.1665 5.00192 14.1665 4.34704C14.1665 3.69216 14.7256 3.1614 15.4165 3.1614C16.1074 3.1614 16.6665 3.69216 16.6665 4.34704C16.6665 5.00192 16.1074 5.53268 15.4165 5.53268Z"
+                                fill="black" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="c-footer__info--icon">
+                    <a href="{{ youtube_url }}" aria-label="Youtube" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_32_134)">
+                                <path d="M8.71423 8.03174V11.6825L12.0793 9.87301L8.71423 8.03174Z" fill="black" />
+                                <path
+                                    d="M14.9841 0H5C2.25397 0 0 2.25397 0 5.01587V15C0 17.746 2.25397 20 5 20H14.9841C17.746 20 20 17.746 20 14.9841V5.01587C20 2.25397 17.746 0 14.9841 0ZM16.1905 10.4921C16.1905 11.5397 16.0952 12.6032 16.0952 12.6032C16.0952 12.6032 15.9841 13.4921 15.619 13.8889C15.1429 14.4127 14.619 14.4127 14.381 14.4444C12.6349 14.5714 10.0159 14.5873 10.0159 14.5873C10.0159 14.5873 6.7619 14.5397 5.7619 14.4444C5.49206 14.3968 4.85714 14.4127 4.38095 13.8889C4 13.4921 3.90476 12.6032 3.90476 12.6032C3.90476 12.6032 3.80952 11.5397 3.80952 10.4921V9.50794C3.80952 8.46032 3.90476 7.39683 3.90476 7.39683C3.90476 7.39683 4.01587 6.50794 4.38095 6.11111C4.85714 5.5873 5.38095 5.57143 5.61905 5.53968C7.38095 5.4127 10 5.39683 10 5.39683C10 5.39683 12.619 5.4127 14.3651 5.53968C14.6032 5.57143 15.1429 5.5873 15.619 6.09524C16 6.49206 16.0952 7.39683 16.0952 7.39683C16.0952 7.39683 16.1905 8.46032 16.1905 9.50794V10.4921Z"
+                                    fill="black" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_32_134">
+                                    <rect width="20" height="20" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                </div>
+                <div class="c-footer__info--icon">
+                    <a href="{{ instagram_url }}" aria-label="Instagram" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_32_137)">
+                                <path
+                                    d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20Z"
+                                    fill="black" />
+                                <path
+                                    d="M11.1081 15.1419H6.38681C4.87348 11.7937 7.90015 8.44386 6.38681 5.0957C7.85056 5.0957 9.31431 5.0957 10.7764 5.0957C12.8642 5.0957 14.8376 6.10118 14.6854 7.79235C14.5947 8.79782 13.7329 9.60836 12.7993 9.94009C13.9313 10.106 14.5229 11.1371 14.3964 12.293C14.198 14.0954 13.3841 15.1419 11.1081 15.1419ZM10.4703 7.33921C10.301 7.33921 10.1317 7.33921 9.96069 7.33921C9.94872 7.96335 9.85125 8.5875 9.723 9.21164H10.2326C11.1372 9.21164 11.6844 8.89529 11.7767 8.23524C11.8605 7.5615 11.3458 7.34092 10.4703 7.34092V7.33921ZM10.3454 11.0276H9.32628C9.19974 11.6518 9.10056 12.2759 9.08859 12.9001C9.42888 12.9001 9.76746 12.9001 10.1077 12.9001C11.0465 12.9001 11.3834 12.5427 11.4689 11.9237C11.5561 11.3183 11.1748 11.0294 10.3454 11.0294V11.0276Z"
+                                    fill="#F5F5F5" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_32_137">
+                                    <rect width="20" height="20" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="s-common-default-footer__navigations">
+            {{#if @site.use_footer_first_navigation}}
+            {{#if @site.footer_first_navigation}}
+            <div class="s-common-default-footer__nav--outer">
+                <div class="s-common-default-footer__nav--title">{{#if
+                    @site.footer_first_navigation_title}}{{@site.footer_first_navigation_title}}{{else}}Navigation
+                    1{{/if}}
+                </div>
+                <ul class="s-common-default-footer__nav">{{navigation type="footerFirst"}}</ul>
+            </div>
+            {{/if}}
+            {{/if}}
+
+            {{#if @site.use_footer_second_navigation}}
+            {{#if @site.use_footer_second_navigation}}
+            <div class="s-common-default-footer__nav--outer">
+                <div class="s-common-default-footer__nav--title">{{#if
+                    @site.footer_second_navigation_title}}{{@site.footer_second_navigation_title}}{{else}}Navigation
+                    2{{/if}}</div>
+                <ul class="s-common-default-footer__nav">{{navigation type="footerSecond"}}</ul>
+            </div>
+            {{/if}}
+            {{/if}}
+        </div>
+    </div>
+</div>

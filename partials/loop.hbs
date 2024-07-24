@@ -1,0 +1,10 @@
+<div class='js-grid'>
+  {{#foreach posts}}
+  {{#match @custom.post_type "=" "텍스트"}}
+  {{> post-card type='text'}}
+  {{/match}}
+  {{#match @custom.post_type "=" "썸네일"}}
+  {{> post-card type='thumbnail'}}
+  {{/match}}
+  {{/foreach}}
+</div>

@@ -1,0 +1,121 @@
+/*------------------------------------*\
+  Components > Tags
+\*------------------------------------*/
+
+.c-tags {
+  overflow: hidden;
+  margin-bottom: - $space-8;
+
+  @include mq($from: tablet) {
+    margin-bottom: - $space-16;
+  }
+
+  a {
+    float: left;
+    font-size: $type-xs;
+    line-height: $type-xs-lh;
+    font-weight: $type-500;
+    letter-spacing: $global-letter-spacing;
+    padding: $space-8 $space-16;
+    margin-right: $space-8;
+    margin-bottom: $space-8;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    border-radius: $space-4;
+
+    @include attention() {
+      color: var(--color-brand);
+    }
+
+    @include mq($from: tablet) {
+      padding: $space-8 $space-24;
+      margin-right: $space-16;
+      margin-bottom: $space-16;
+      line-height: $type-md-lh;
+    }
+  }
+}
+
+.c-feature-box-tag {
+  max-width: 1072px;
+  @include mq($from: desktop) {
+    margin-bottom: 20px;
+    display: flex;
+    width: 75%;
+    margin: 90px auto;
+    justify-content: center;
+  }
+
+  &__info {
+    width: 90%;
+    @include mq($from: desktop) {
+      width: 49%;
+      height: 100px;
+    }
+
+    @include mq($until: desktop) {
+      margin: 0 auto;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    &--tag_name {
+      font-family: 'Noto Serif Georgian';
+      font-size: 60px;
+      font-weight: 700;
+      line-height: 80px;
+      letter-spacing: -2px;
+      text-align: left;
+      display: block;
+      width: fit-content;
+      color: rgba(162, 174, 183, 1);
+      &--current {
+        color: black;
+      }
+
+      @include mq($from: desktop) {
+        text-align: left;
+      }
+      @include mq($until: desktop) {
+        font-size: 48px;
+        line-height: 56px;
+      }
+    }
+
+    &--contacts {
+      display: flex;
+      margin-top: 80px;
+      @include mq($until: desktop) {
+        justify-content: center;
+        margin-top: 50px;
+      }
+    }
+
+    &--desc {
+      font-family: noto-sans-cjk-kr, san-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 28px;
+      letter-spacing: -1px;
+      text-align: left;
+      margin-top: 30px;
+      max-width: 85%;
+      @include mq($until: desktop) {
+        margin: 30px auto;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 25px;
+        letter-spacing: -1px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__posts {
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+
+    width: 49%;
+  }
+}

@@ -1,0 +1,462 @@
+{{!-- <form data-members-form='subscribe' class='c-subscribe-form is-membership {{ formClass }}'>
+  <div class='c-form-group'>
+    <label for='{{ inputLabel }}' class='u-hidden-visually'>{{t 'Your email address' }}</label>
+    <input type='email' name='email' class='c-form-group__input' id='{{ inputLabel }}' placeholder='{{t ' Your email
+      address' }}' required data-members-email>
+    <button type='submit' value='{{t ' Subscribe' }}' class='c-btn c-form-group__btn'>{{t 'Signup for free' }}</button>
+  </div>
+
+  <div class='c-alert c-alert--success'>{{t 'Please check your inbox and click the link to confirm your subscription.'
+    }}</div>
+  <div class='c-alert c-alert--invalid'>{{t 'Please enter a valid email address!' }}</div>
+  <div class='c-alert c-alert--error'>{{t 'An error occurred, please try again later.' }}</div>
+</form> --}}
+
+{{!-- <div class="c-subscribe__g">
+
+  <div class="c-subscribe__g--side">
+    <span class="c-subscribe__g--label">Newsletter</span>
+    <h2 class="c-subscribe__g--title">{{ @custom.newsletter_form_title }}</h2>
+  </div>
+  <div class="c-subscribe__g--form-container">
+    <form data-members-form="subscribe" class="c-subscribe__g--form">
+      <label for="{{ inputLabel }}" class="u-hidden-visually">{{t 'Your email address' }}</label>
+      <input type="email" name="email" class="c-subscribe__g--form-input" id="{{ inputLabel }}"
+        placeholder="{{t 'Your email address' }}" required data-members-email>
+      <button type="submit" class="c-subscribe__g--form-submit">구독</button>
+    </form>
+  </div>
+</div> --}}{{#match @custom.stibee_status "on"}}
+<div class="c-subscribe__main--outer">
+  <div class="o-grid">
+    <div class="o-grid__col o-grid__col--4-4-s">
+      <div class="c-subscribe__main" style="display: block;">
+        <div class="c-subscribe__main--header" style="margin-bottom: 0;">
+          <h2 class="c-subscribe__main--title">{{ @site.subscription_form_title }}</h2>
+          <p class="c-subscribe__main--desc">{{ @custom.newsletter_form_description }}</p>
+        </div>
+        <div id="stb_subscribe">
+          <div class="stb_header"> </div>
+          <form action="{{ @custom.stibee_request_url }}" method="POST" target="_blank" accept-charset="utf-8"
+            class="stb_form" name="stb_subscribe_form" id="stb_subscribe_form" novalidate="">
+            <div class="stb_form_user_info">
+              <fieldset class="stb_form_set">
+                <div class="stb_email">
+                  <label for="stb_email" class="u-hidden-visually">이메일 주소</label>
+                  <input type="email" class="stb_form_set_input stb_email_input" id="stb_email" name="email"
+                    required="required" placeholder="{{t 'Your email address' }}" style="height: 42px;">
+                  <div class="stb_form_msg_error" id="stb_email_error"></div>
+                </div>
+              </fieldset>
+              <fieldset class="stb_form_set">
+                <div class="stb_nickname">
+                  <label for="stb_nickname" class="u-hidden-visually">닉네임</label>
+                  <input type="text" class="stb_form_set_input stb_nickname" id="stb_nickname" name="nickname"
+                    required="required" placeholder="{{t 'Your nickname' }}" style="height: 42px;">
+                  <div class="stb_form_msg_error" id="stb_nickname_error"></div>
+                </div>
+              </fieldset>
+              <fieldset class="stb_form_set_submit">
+                <button type="submit" class="stb_form_submit_button stb_submit_button_big_screen"
+                  id="stb_form_submit_button">{{
+                  @custom.newsletter_form_button_text }}</button>
+              </fieldset>
+            </div>
+            <div class="stb_form_policies">
+              <div class="stb_form_policy stb_form_policy1">
+                <label>
+                  <input type="checkbox" id="stb_policy" value="stb_policy_true">
+                  <button id="stb_form_modal_open" data-modal="stb_form_policy_modal" required="required"
+                    class="stb_form_modal_open_btn" type="button">(필수)개인정보 수집 및 이용에 동의합니다.</button>
+                </label>
+                <div class="stb_form_msg_error" id="stb_policy_error"></div>
+                <div class="stb_form_modal stb_form_policy_text blind" id="stb_form_policy_modal">
+                  <div class="stb_form_modal_body">
+                    <h1 class="stb_form_modal_title">개인정보 수집 및 이용</h1>
+                    <p class="stb_form_modal_text">
+                      {{@custom.subscribe_policy1}}
+                    </p>
+                    <div class="stb_form_modal_btn">
+                      <button id="stb_form_modal_close" class="stb_form_modal_close_btn"
+                        data-modal="stb_form_policy_modal" type="button">닫기</button>
+                    </div>
+                  </div>
+                  <div class="stb_form_modal_bg" id="stb_form_modal_bg"></div>
+                </div>
+              </div>
+              <div class="stb_form_policy stb_form_policy2"> <label> <input type="checkbox" id="stb_ad_agreement"
+                    value="stb_ad_agreement_true" required="required"> <button id="stb_form_ad_modal_open"
+                    data-modal="stb_form_ad_agreemnet_modal" class="stb_form_modal_open_btn" type="button"
+                    required="required">(필수)광고성 정보 수신에 동의합니다.</button> </label>
+                <div class="stb_form_msg_error" id="stb_ad_agreement_error"></div>
+
+                <div class="stb_form_modal stb_form_policy_text blind" id="stb_form_ad_agreemnet_modal">
+                  <div class="stb_form_modal_body">
+                    <h1 class="stb_form_modal_title">광고성 정보 수신</h1>
+                    <p class="stb_form_modal_text">
+                      {{@custom.subscribe_policy2}}
+                    </p>
+                    <div class="stb_form_modal_btn"> <button id="stb_form_ad_modal_close"
+                        class="stb_form_modal_close_btn" data-modal="stb_form_ad_agreemnet_modal"
+                        type="button">닫기</button> </div>
+                  </div>
+                  <div class="stb_form_modal_bg" id="stb_form_ad_modal_bg"></div>
+                </div>
+              </div>
+            </div>
+            <fieldset class="stb_form_set_submit">
+              <button type="submit" class="stb_form_submit_button  stb_submit_button_small_screen"
+                id="stb_form_submit_button">{{
+                @custom.newsletter_form_button_text }}</button>
+            </fieldset>
+            <div class="stb_form_result" id="stb_form_result">
+            </div>
+          </form>
+        </div>
+        <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+        <script type="text/javascript"
+          src="https://s3.ap-northeast-2.amazonaws.com/resource.stibee.com/subscribe/stb_subscribe_form.js"></script>
+      </div>
+    </div>
+  </div>
+  {{/match}}
+  {{#match @custom.stibee_status "off"}}
+  <div class="c-subscribe__main--outer">
+    <div class="o-grid">
+      <div class="o-grid__col o-grid__col--4-4-s">
+        <div class="c-subscribe__main" style="display: block;">
+          <div class="c-subscribe__main--header">
+            <h2 class="c-subscribe__main--title">{{ @site.subscription_form_title }}</h2>
+            <p class="c-subscribe__main--desc">{{ @custom.newsletter_form_description }}</p>
+          </div>
+          <div class="c-subscribe__main--form-container">
+            <form data-members-form="subscribe" class="c-subscribe__main--form">
+              <label for="subscribe-home-intro" class="u-hidden-visually">{{t 'Your email address' }}</label>
+              <input type="email" name="email" class="c-subscribe__main--form-input" id="subscribe-home-intro"
+                placeholder="{{t 'Your email address' }}" required data-members-email style="height: 42px;">
+              <button type="submit" class="c-subscribe__main--form-submit">{{ @custom.newsletter_form_button_text
+                }}</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/match}}
+  <html>
+
+  <head>
+    <style>
+      #stb_subscribe * {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        border: 0;
+        color: #333;
+        box-sizing: border-box;
+      }
+
+
+      #stb_subscribe {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      @media (max-width: 1023px) {
+        #stb_subscribe {
+          width: 100%;
+          margin: 0 auto;
+          box-sizing: border-box;
+        }
+      }
+
+      #stb_subscribe .stb_header {
+        width: 100%;
+        overflow: hidden;
+        text-align: left;
+        padding-bottom: 40px;
+      }
+
+
+      #stb_subscribe .stb_header img {
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+      }
+
+
+      #stb_subscribe .stb_form_title {
+        font-size: 24px;
+        padding-bottom: 30px;
+        color: #333;
+        line-break: anywhere;
+      }
+
+
+      #stb_subscribe .stb_form_description {
+        padding-bottom: 40px;
+        font-size: 14px;
+        line-height: 1.71;
+        color: #333;
+        line-break: anywhere;
+      }
+
+      #stb_subscribe .stb_form_description a {
+        text-decoration: underline;
+        color: #3e81f6;
+      }
+
+
+      #stb_subscribe .stb_form_set {
+        padding-bottom: 20px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      #stb_subscribe .stb_form_set .stb_form_set_label {
+        display: flex;
+      }
+
+
+      #stb_subscribe .stb_email {
+        width: 270px;
+        margin-right: 10px;
+      }
+
+      @media (max-width: 1023px) {
+        #stb_subscribe .stb_email {
+          width: 100%;
+          margin-right: 0;
+        }
+      }
+
+      #stb_subscribe .stb_nickname {
+        width: 150px;
+        margin-right: 10px;
+      }
+
+      @media (max-width: 1023px) {
+        #stb_subscribe .stb_nickname {
+          width: 100%;
+          margin-right: 0;
+        }
+      }
+
+      #stb_subscribe .stb_form_user_info {
+        display: flex;
+      }
+
+      @media (max-width: 1023px) {
+        #stb_subscribe .stb_form_user_info {
+          display: block;
+        }
+      }
+
+      #stb_subscribe .stb_form_set .stb_form_set_input {
+        display: block;
+        width: 100%;
+        padding: 9px 10px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        background-color: #e5d9cc;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+
+      #stb_subscribe .stb_form_msg_error {
+        display: none;
+        color: #f95a1f;
+        font-size: 12px;
+        /* position: absolute; */
+        /* left: 0; */
+        /* bottom: 0; */
+      }
+
+      #stb_subscribe .stb_form_policies {
+        display: flex;
+      }
+
+      @media (max-width: 1130px) {
+        #stb_subscribe .stb_form_policies {
+          display: block;
+        }
+      }
+
+      #stb_subscribe .stb_form_policy {
+        position: relative;
+        padding-bottom: 5px;
+      }
+
+      #stb_subscribe .stb_form_policy1 {
+        width: 270px;
+        margin-right: 10px;
+      }
+
+      #stb_subscribe .stb_form_policy.odd {
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+
+      #stb_subscribe .stb_form_policy * {
+        vertical-align: top;
+      }
+
+
+      #stb_subscribe .stb_form_policy label input {
+        width: 16px;
+        height: 16px;
+      }
+
+
+      #stb_subscribe .stb_form_policy label button {
+        color: #333;
+        cursor: pointer;
+        background: none;
+        text-decoration: underline;
+        text-decoration-color: #333;
+      }
+
+      #stb_subscribe .stb_form_modal {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100000;
+      }
+
+      #stb_subscribe .stb_form_modal.blind {
+        display: none !important;
+      }
+
+      #stb_subscribe .stb_form_modal_bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        opacity: .5;
+        z-index: 1;
+      }
+
+      #stb_subscribe .stb_form_modal_body {
+        background: #fff;
+        width: 94%;
+        max-width: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+      }
+
+      #stb_subscribe .stb_form_modal_title {
+        font-size: 18px;
+        padding: 30px;
+        color: #333;
+      }
+
+      #stb_subscribe .stb_form_modal_text {
+        font-size: 14px;
+        line-height: 1.71;
+        color: #333;
+        margin: 0 30px;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+
+      #stb_subscribe .stb_form_modal_btn {
+        padding: 30px;
+        text-align: center;
+      }
+
+      #stb_subscribe .stb_form_modal_btn button {
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        background: #e6e6eb;
+        color: #333;
+        cursor: pointer;
+      }
+
+      #stb_subscribe .stb_form_submit_button {
+        height: 42px;
+        width: fit-content;
+        padding: 0 24px;
+        background-color: rgba(14, 21, 14, 0.3);
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all ease 0.3s;
+        border-color: #05150e;
+
+        &:hover {
+          background-color: #000;
+          border-color: #000;
+          color: #fff;
+        }
+      }
+
+      @media (max-width: 1023px) {
+        #stb_subscribe .stb_form_submit_button {
+          width: fit-content;
+          box-sizing: border-box;
+        }
+      }
+
+      #stb_subscribe .stb_submit_button_small_screen {
+        display: none;
+      }
+
+      @media (max-width: 1240px) {
+        #stb_subscribe .stb_submit_button_small_screen {
+          display: block;
+        }
+      }
+
+      @media (max-width: 1240px) {
+        #stb_subscribe .stb_submit_button_big_screen {
+          display: none;
+        }
+      }
+
+
+      #stb_subscribe .stb_form_submit_button.disabled {
+        pointer-events: none;
+        opacity: .5;
+      }
+
+      #stb_subscribe.theme-page .stb_form_submit_button {
+        width: 100%;
+      }
+
+
+
+      #stb_subscribe .stb_form_result {
+        display: none;
+        padding: 0 0 0 0;
+        text-align: left;
+      }
+
+
+      #stb_subscribe .stb_form_result p {
+        line-height: 1.4;
+        font-size: 12px;
+      }
+
+
+      #stb_subscribe .stb_form_result.fail p {
+        color: #f95a1f;
+      }
+
+
+      #stb_subscribe .stb_form_result.success p {
+        color: #3e81f6;
+      }
+    </style>
+  </head>
+  </html>

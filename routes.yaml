@@ -1,0 +1,30 @@
+routes:
+  ## Routes for membership
+  /membership/: members/membership
+  /signup/: members/signup
+  /signin/: members/signin
+  /account/: members/account
+
+  ## Routes for shop
+  /shop/online-class/: routes/shop/online-class
+  /shop/webinar/: routes/shop/webinar
+  /shop/digital-book/: routes/shop/digital-book
+  /shop/etc/: routes/shop/etc
+
+  /blog/:
+    controller: channel
+    template: blog
+    filter: tag:-home
+
+  /news/:
+    controller: channel
+    template: news
+
+collections:
+  /:
+    permalink: /{slug}/
+    template: home
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

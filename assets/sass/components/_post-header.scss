@@ -1,0 +1,124 @@
+/*------------------------------------*\
+  Components > Post Hero
+\*------------------------------------*/
+
+.c-post-media {
+  &__image {
+    margin: auto;
+  }
+
+  &__caption {
+    text-align: center;
+    padding: $space-16 $space-16 0 $space-16;
+    font-size: $type-xs;
+    line-height: $type-xs-lh;
+    font-weight: $type-500;
+    color: var(--color-text-secondary);
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: $space-4;
+      color: var(--color-text-primary);
+
+      @include attention() {
+        color: var(--color-brand);
+      }
+    }
+  }
+}
+
+.c-post-image {
+  margin: auto;
+}
+
+.c-post-header {
+  margin-top: 50px;
+  > * + * {
+    margin-top: $space-24;
+  }
+
+  &__brand {
+    font-family: Noto Serif Georgian;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5px 8px;
+  }
+
+  &__title {
+    font-size: $type--h-sm;
+    line-height: $type--h-sm-lh;
+    letter-spacing: - $global-letter-spacing;
+  }
+
+  &__excerpt {
+    margin-top: $space-8;
+    font-size: $type-lg;
+    line-height: $type-lg-lh;
+
+    @include mq($from: desktop) {
+      font-size: $type-xl;
+      line-height: $type-xl-lh;
+      letter-spacing: - $global-letter-spacing;
+    }
+  }
+
+  &__meta {
+    margin-top: 35px;
+    justify-content: center;
+    display: flex;
+  }
+
+  &__author {
+    font-family: noto-sans-cjk-kr, san-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 0 10px;
+  }
+  
+  
+  &__date {
+    font-family: noto-sans-cjk-kr, san-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 0 10px;
+  }
+
+  &__comment {
+    font-family: noto-sans-cjk-kr, san-serif !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+    text-align: center !important;
+    margin: 0 10px !important;
+  }
+
+  &__reading-time {
+    color: var(--color-text-secondary);
+  }
+
+  &__author_media {
+    width: $space-32;
+    height: $space-32;
+    border-radius: 100%;
+    margin-right: $space-8;
+    background-color: var(--background-secondary);
+  }
+
+  &__author_image {
+    width: $space-32;
+    height: $space-32;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+}
